@@ -1,0 +1,17 @@
+version: '3.1'
+services: 
+  nginx: 
+    restart: always
+    image: daocloud.io/library/nginx:latest
+    container_name: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /usr/local/docker/nginx/conf.d/:/etc/nginx/conf.d
+      - /usr/local/docker/nginx/log:/var/log/nginx
+      - /usr/local/docker/nginx/wwww:/var/www
+      - /usr/local/docker/nginx/etc/letsencrypt:/etc/letsencrypt
+      - /usr/local/docker/nginx/html:/usr/share/nginx/html
+      - /usr/local/docker/nginx/cert:/etc/nginx/cert
+        
